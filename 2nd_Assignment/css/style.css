@@ -1,0 +1,111 @@
+body {
+    /* background-color: #4c9e83; */
+    background-image: url("https://i.pinimg.com/originals/76/01/a3/7601a31e47247077856ed69b7b4fa124.gif");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.frame {
+    position: absolute;
+    width: 500px;
+    height: 270px;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FF8F6C;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 40px;
+}
+
+.Header {
+    position: relative;
+    font-family: Roboto Mono;
+    font-size: 17px;
+    padding: 0.5em;
+    color: #010101;
+    background: #fff765;
+    border-bottom: solid 3px #004687;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 260px;
+}
+
+p{
+    font-family: Roboto Mono;
+    font-size: 11px;
+    font-weight: bold;
+}
+.myInfo {
+    position: relative;
+    /* padding: auto; */
+}
+/* img {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 260px;
+    float: left;
+} */
+
+/* image container needs to have the float */
+.container {
+	padding: 2rem;
+    width: 40%;
+    float: left;
+    margin-top: 0px;
+}
+
+.slider-wrapper {
+	position: relative;
+	max-width: 48rem;
+	margin: 0 auto;
+}
+
+.slider {
+	display: flex;
+	aspect-ratio: 5 / 5;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+	border-radius: 0.5rem;
+	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+	scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slider::-webkit-scrollbar {
+	display: none;
+}
+
+.slider img {
+	flex: 1 0 100%;
+	scroll-snap-align: start;
+	object-fit: cover;
+}
+
+.slider-nav {
+	display: flex;
+	column-gap: 1rem;
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.slider-nav a {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #d9ff00;
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+	opacity: 1;
+}
+
+
