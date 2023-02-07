@@ -2,7 +2,7 @@ body {
     /* background-color: #4c9e83; */
     background-image: url("https://i.pinimg.com/originals/76/01/a3/7601a31e47247077856ed69b7b4fa124.gif");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: 100%;
 }
 
 .frame {
