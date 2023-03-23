@@ -1,0 +1,51 @@
+/* Profile */
+#fav ul{
+    list-style-type: none; 
+    padding: 0;
+}
+#fav a {
+    color: lightgreen; 
+}
+#fav a:hover{
+    color: red;
+}
+/* Profile */
+#pro {
+    width: 40%;
+    margin: 20px;
+    padding: 20px;
+}
+#pro:hover {
+    border: 1px solid red;
+    transition: 1s;
+}
+#pro:hover h2{
+    color:red;
+    transition: 1s;
+}
+/* gallery */
+#gal ul{
+    list-style-type: none;
+    padding: 0;
+}
+#gal img{
+    transition: transform 1s;
+}
+#gal img:hover{
+    transform: scale(1.2);
+}
+#gal {
+    margin: 20px;
+}
+#b li{
+    list-style-type: none; 
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
+}
