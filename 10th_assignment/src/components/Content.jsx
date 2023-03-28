@@ -11,6 +11,7 @@ const Content = () => {
       justifyContent="flex-start"
       alignItems="center"
       pt={2}
+      marginTop={8}
     >
       <Grid item xs={6}>
         <Box>

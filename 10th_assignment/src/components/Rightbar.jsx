@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 const Rightbar = () => {
     return (
-        <Box>
+        <Box marginTop={8}>
         <Typography>Latest Photos</Typography>
         <ImageList sx={{ width: 250}} cols={2} >
           {itemData.map((item) => (

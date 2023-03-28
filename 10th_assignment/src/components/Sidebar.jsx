@@ -20,7 +20,7 @@ import {
 import React from "react";
 function Sidebar() {
   return (
-    <Box sx={{display:{xs:"none",md:"flex"},justifyContent:"center"}}>
+    <Box sx={{display:{xs:"none",md:"flex"},justifyContent:"center"}} marginTop={8}>
       <List>
         <ListItem disablePadding>
           <ListItemButton>
