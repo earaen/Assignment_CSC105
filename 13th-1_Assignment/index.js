@@ -22,48 +22,8 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-aapp.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("hello world!");
-});
-
-app.post("/login", async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-  connection.query(
-    `SELECT * FROM users WHERE username = ?`,
-    [username],
-    async (err, rows) => {
-      if (err) {
-        res.json({
-          success: false,
-          data: null,
-          error: err.message,
-        });
-      } else {
-        numRows = rows.length;
-        if (numRows == 0) {
-          res.json({
-            success: false,
-            message: "this username does not exist",
-          });
-        }
-        const isMatch = await bcrypt.compare(password, rows[0].hashed_password);
-        if (!isMatch) {
-          res.json({
-            success: false,
-            message: "the password is incorrect",
-          });
-        } else {
-          res.json({
-            success: true,
-            message: "the password is correct",
-            user: rows[0],
-          });
-        }
-      }
-    }
-  );
 });
 
 app.post(
@@ -112,3 +72,43 @@ app.post(
     );
   }
 );
+
+app.post("/login", async (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  connection.query(
+    `SELECT * FROM users WHERE username = ?`,
+    [username],
+    async (err, rows) => {
+      if (err) {
+        res.json({
+          success: false,
+          data: null,
+          error: err.message,
+        });
+      } else {
+        numRows = rows.length;
+        if (numRows == 0) {
+          res.json({
+            success: false,
+            message: "this username does not exist",
+          });
+        }
+        const isMatch = await bcrypt.compare(password, rows[0].hashed_password);
+        if (!isMatch) {
+          res.json({
+            success: false,
+            message: "the password is incorrect",
+          });
+        } else {
+          res.json({
+            success: true,
+            message: "the password is correct",
+            user: rows[0],
+          });
+        }
+      }
+    }
+  );
+});
