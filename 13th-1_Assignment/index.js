@@ -1,12 +1,14 @@
 const express = require("express");
-const port = 3000;
 const app = express();
+const port = 3000;
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
+const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 
 const connection = mysql.createConnection({
-  host: "server2.....server2.bsthun.com61..",
+  host: "server2.bsthun.com",
+  port: "6105",
   user: "lab_lojtb",
   password: "ruQTJEOe9hNYg69P",
   database: "lab_todo02_l5wlqp",
@@ -45,11 +47,11 @@ app.post(
     if (!errors.isEmpty()) {
       return res.json({ errors: errors.array() });
     }
-    const salt = await bcrypt.genSalt();
-    const hash = await bcrypt.hash(password, salt);
+
+    const hash = await bcrypt.hash(password, 10);
     connection.query(
-      `INSERT INTO users (username, hashed_password) VALUES (?,?)`,
-      [username, hash],
+      `INSERT INTO users (username, password, hashed_password) VALUES (?,?,?)`,
+      [username, password, hash],
       (err, rows) => {
         if (err) {
           res.json({
@@ -63,7 +65,7 @@ app.post(
             res.json({
               success: true,
               data: {
-                message: "create success",
+                message: "register successful",
               },
             });
           }
@@ -72,7 +74,6 @@ app.post(
     );
   }
 );
-
 app.post("/login", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
